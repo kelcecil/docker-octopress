@@ -21,6 +21,10 @@ You can then launch your blog quite easily:
 docker run -d -p 80:80 <insert image here>
 ```
 
+###Contributing
+
+I love pull requests, and I'd love to have yours! Just fork the repo, make a branch and your changes, and make a PR targeting master.
+
 ###License
 
 Released under MIT license. Check the LICENSE FILE.

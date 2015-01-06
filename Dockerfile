@@ -12,6 +12,8 @@ RUN ./configure && make && make install
 WORKDIR /src/gwan
 RUN wget --quiet http://gwan.ch/archives/gwan_linux64-bit.tar.bz2 -O gwan.tar.bz2 && tar jxf gwan.tar.bz2 -C ./ --strip 1
 
+EXPOSE 80
+
 # Add the included octopress source
 ONBUILD ADD . /src/octopress
 

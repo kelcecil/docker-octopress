@@ -24,7 +24,7 @@ ONBUILD ADD . /src/octopress
 ONBUILD WORKDIR /src/octopress
 
 # Should make sure that jekyll and octopress are installed.
-ONBUILD RUN gem install jekyll
+ONBUILD RUN gem install jekyll && gem install octopress --pre
 ONBUILD RUN jekyll build
 
 # Link the public files from octopress.

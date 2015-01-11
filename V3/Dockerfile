@@ -15,7 +15,7 @@ RUN ./configure && make && make install
 WORKDIR /src/gwan
 RUN wget --quiet http://gwan.ch/archives/gwan_linux64-bit.tar.bz2 -O gwan.tar.bz2 && tar jxf gwan.tar.bz2 -C ./ --strip 1
 
-EXPOSE 81
+EXPOSE 80
 
 # Add the included octopress source
 ONBUILD ADD . /src/octopress
@@ -28,9 +28,8 @@ ONBUILD RUN gem install jekyll && gem install octopress --pre
 ONBUILD RUN jekyll build
 
 # Link the public files from octopress.
-ONBUILD RUN mkdir -p /src/gwan/0.0.0.0_81/#0.0.0.0 && ln -s /src/octopress/_site/ /src/gwan/0.0.0.0_81/#0.0.0.0/www
+ONBUILD RUN mkdir -p /src/gwan/0.0.0.0_80/#0.0.0.0 && ln -s /src/octopress/_site/ /src/gwan/0.0.0.0_80/#0.0.0.0/www
 
 # Set the workdir back to gwan.
 ONBUILD WORKDIR /src/gwan
 ENTRYPOINT ./gwan
-
